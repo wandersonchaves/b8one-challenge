@@ -1,15 +1,16 @@
 import express from "express";
+import UserController from "./controllers/UserController";
 
 const router = express.Router();
 
-router.post("/users", async (req, res) => {});
+router.post("/users", UserController.create);
 
-router.get("/users", async (req, res) => {});
+router.get("/users", UserController.findAll);
 
-router.get("/users/:userID", async (req, res) => {});
+router.get("/users/:userId", UserController.findOne);
 
-router.put("/users/userID", async (req, res) => {});
+router.put("/users/userId", UserController.update);
 
-router.delete("/users/userID", async (req, res) => {});
+router.delete("/users/userId", UserController.destroy);
 
 export { router };

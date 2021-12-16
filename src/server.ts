@@ -8,7 +8,7 @@ app.use(json());
 
 app.use(router);
 
-app.listen(3333, async () => {
+app.listen(4000, async () => {
   await db.sync();
   console.log(`Hello World! ${process.env.PROJECT_NAME}`);
 });
