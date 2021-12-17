@@ -1,16 +1,16 @@
-import express from "express";
-import UserController from "./controllers/UserController";
+const express = require("express");
+const DevController = require("./controllers/DevController");
 
-const router = express.Router();
+const routes = express.Router();
 
-router.post("/users", UserController.create);
+routes.post("/devs", DevController.create);
 
-router.get("/users", UserController.findAll);
+routes.get("/devs", DevController.findAll);
 
-router.get("/users/:userId", UserController.findOne);
+routes.get("/devs/:devId", DevController.findOne);
 
-router.put("/users/userId", UserController.update);
+routes.patch("/devs/:devId", DevController.updateOne);
 
-router.delete("/users/userId", UserController.destroy);
+routes.delete("/devs/:devId", DevController.destroy);
 
-export { router };
+export default routes;

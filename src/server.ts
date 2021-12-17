@@ -1,14 +1,15 @@
-import express, { json } from "express";
-import { db } from "./database/db";
-import { router } from "./routes";
+import express from "express";
+import mongoose from "mongoose";
 
-const app = express();
+import routes from "./routes";
 
-app.use(json());
+const server = express();
 
-app.use(router);
+server.use(express.json());
+server.use(routes);
 
-app.listen(4000, async () => {
-  await db.sync();
-  console.log(`Hello World! ${process.env.PROJECT_NAME}`);
-});
+mongoose.connect(
+  "mongodb+srv://root:toor@cluster0.cz3zj.mongodb.net/b8one?retryWrites=true&w=majority"
+);
+
+server.listen(3333);
